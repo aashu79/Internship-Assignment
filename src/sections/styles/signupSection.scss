@@ -1,0 +1,40 @@
+.signup-container{
+    margin-top: 20px;
+    
+    display: flex;
+    justify-content: space-between; 
+    font-size: xx-large;
+
+    h4{
+        width: 50%;
+        
+        color: gray;
+    }
+    .input-container{
+        display: flex;
+        input{
+            border: none;
+            height: 55px;
+        }
+        button{
+        background-color: #318CE7;
+            border: none;
+            padding: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            color: white;
+            height: 55px;
+            cursor: pointer;
+            &:hover {
+                background: white;
+                color: black;
+            }
+        }
+    }
+}
+
+@media (max-width: 746px) {
+    .signup-container {
+    flex-direction: column;
+    }
+  }

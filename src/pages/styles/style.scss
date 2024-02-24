@@ -1,0 +1,17 @@
+$bgcolor: aliceblue;
+
+
+.landing-page{
+   background-color: rgb(255, 249, 249);
+  
+}
+.body{
+   display: flex;
+   gap: 20px;
+   flex-direction: column;
+   margin: 30px auto 30px auto;
+   width: 90vw;
+   
+   width: 75%;
+   background-color: bgcolor;
+}
