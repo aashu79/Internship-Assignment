@@ -44,6 +44,11 @@
                 width: 100%;
             }
         }
+        @media (min-width: 768px) and (max-width: 1023px) {
+            img{
+                width: 100%;
+            }
+        }
     }
 
 
@@ -158,5 +163,8 @@
 @media (min-width: 768px) and (max-width: 1023px) {
     .card{
         flex-direction: column;
+    }
+    .image-container{
+
     }
 }
