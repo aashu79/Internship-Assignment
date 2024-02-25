@@ -47,6 +47,11 @@ const horizontalData = [
     { num: 8.9, text: "Docs" },
     { num: 9.1, text: "Why we love it Documentation Easy Use Out of Box" }
     ],
+    features: [
+      "Documentation",
+      "Easy Use",
+      "Out of Box"
+    ],
     rating: 9.1,
     ratingText: "Very Good",
   },

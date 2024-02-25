@@ -2,7 +2,7 @@ import "./styles/styles.scss";
 import image from "../assets/image.png";
 import StarRating from "./StarRating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleInfo, faGem, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import { faCircleCheck, faCircleInfo, faGem, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 interface propType {
@@ -15,6 +15,7 @@ interface propType {
     highlights: string | item[];
     rating: number;
     ratingText: string;
+    features?: string[];
     
     }
  
@@ -65,6 +66,7 @@ const HorizontolCard = ({data}: propType) => {
 
         <p style={{ fontWeight: "bold", color: "black" }}>Main Highlights</p>
         {Array.isArray(data?.highlights) ? (
+          <>
           <div style={{marginTop: "10px",background: "#FEE8D6 ", padding: "10px", borderRadius: "10px"}}>
             <ul>
               {data?.highlights?.map((item: item, index) => {
@@ -76,7 +78,26 @@ const HorizontolCard = ({data}: propType) => {
                 );
               })}
             </ul>
+            
           </div>
+          <div className={!expanded ? "highlights-text" : "expanded-highlights"}>
+              <p style={{fontWeight: "bold"}}>Why we Love it</p>
+              {
+                data?.features?.map((item, index) => {
+                  return(<p key={index}><FontAwesomeIcon icon={faCircleCheck} size="2xs" style={{color: "#74C0FC",}} /> {item}</p>)
+                })
+              }
+            </div>
+            <p
+              style={{ color: "blue", cursor: "pointer" }}
+              onClick={() => {
+                setExpanded(!expanded);
+              }}
+            >
+              {!expanded ? "Show More" : "Show Less"}
+            </p>
+          </>
+          
         ) : (
           <>
             <p
