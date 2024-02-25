@@ -43,9 +43,9 @@ const horizontalData = [
       "An extensive library of widgets and apps, and detailed step-by-step guides",
     
     highlights: [
-      "CDK 9.9 Building Responsive",
-      "Cool 8.9 Docs",
-      "Why we love it Documentation Easy Use Out of Box",
+      { num: 9.9, text: "Building Responsive" },
+    { num: 8.9, text: "Docs" },
+    { num: 9.1, text: "Why we love it Documentation Easy Use Out of Box" }
     ],
     rating: 9.1,
     ratingText: "Very Good",

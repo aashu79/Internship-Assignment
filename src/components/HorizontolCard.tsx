@@ -2,7 +2,7 @@ import "./styles/styles.scss";
 import image from "../assets/image.png";
 import StarRating from "./StarRating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleInfo, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import { faCircleInfo, faGem, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 interface propType {
@@ -12,22 +12,25 @@ interface propType {
     type: string;
     tag?: string;
     description: string;
-    highlights: string | string[];
+    highlights: string | item[];
     rating: number;
     ratingText: string;
     
     }
  
 }
+type item ={
+  num: number,
+  text: string,
+}
 
 const HorizontolCard = ({data}: propType) => {
   const [expanded, setExpanded] = useState(false);
 
-  const highlights = [
-    { num: 9.9, text: "Building Responsive" },
-    { num: 8.9, text: "Docs" },
-    { num: 9.1, text: "Why we love it Documentation Easy Use Out of Box" }
-]
+  const icons = {
+    "Best Choice": <FontAwesomeIcon icon={faTrophy} style={{marginRight: "8px"}}/>,
+    "Best Value": <FontAwesomeIcon icon={faGem} style={{marginRight: "8px"}}/>
+  }
 
   return (
     <div className="card">
@@ -35,7 +38,7 @@ const HorizontolCard = ({data}: propType) => {
 
       {/* //image section */}
       <div className="image-container">
-        {data?.tag && <p className="highlight"><FontAwesomeIcon icon={faTrophy} style={{marginRight: "8px"}}/>{data?.tag}</p>}
+        {data?.tag && <p className="highlight">{icons[data?.tag as keyof typeof icons]}{data?.tag}</p>}
         
         <p className="numbering">{data?.id}</p>
         <img src={image} alt="" />
@@ -64,11 +67,11 @@ const HorizontolCard = ({data}: propType) => {
         {Array.isArray(data?.highlights) ? (
           <div style={{marginTop: "10px",background: "#FEE8D6 ", padding: "10px", borderRadius: "10px"}}>
             <ul>
-              {highlights?.map((item, index) => {
+              {data?.highlights?.map((item: item, index) => {
                 return(
                     <div style={{display: "flex", gap: "5px", alignItems: "center"}}>
-                    <p style={{display: "inline-block", padding: "6px", borderRadius: "6px", background: "#F0F8FF", color: "black"}}>{item.num}</p>
-                    <li key={index} style={{listStyle: "none", fontWeight: "light", marginTop: "5px"}}>{item.text}</li>
+                    <p style={{display: "inline-block", padding: "6px", borderRadius: "6px", background: "#F0F8FF", color: "black"}}>{item?.num}</p>
+                    <li key={index} style={{listStyle: "none", fontWeight: "light", marginTop: "5px"}}>{item?.text}</li>
                     </div>
                 );
               })}
