@@ -39,6 +39,11 @@
             border-radius: 50%;
             border: 0.5px solid rgb(181, 180, 180);
         }
+        @media (max-width: 746px) {
+            img{
+                width: 100%;
+            }
+        }
     }
 
 
